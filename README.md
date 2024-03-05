@@ -1,42 +1,44 @@
-**Hướng dẫn kết nối với Database SQL Server:**
-1. Nạp driver : 
+**Guide to connect to SQL Server Database:**
+
+Load the driver:
 => Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-2. Connection URL :
+Connection URL:
 => String myURL = "jdbc:jtds:sqlserver://localhost:1433/pubs";
-3. Tạo kết nối :
+Establish connection:
 => String username = "sa";
-   String password = "";
-   Connection connection =
-	DriverManager.getConnection(myURL, username, pasword);
-4. Tạo một Statement:
+String password = "";
+Connection connection = DriverManager.getConnection(myURL, username, password);
+Create a Statement:
 => Statement statement = connection.createStatement();
-5. Thực thi một truy vấn (select, delete, update, ...) :
-=> Lưu ý: nếu query là select thì kết quả trả về là 1 ResultSet:
-		String query = "select * from Lop";
-		ResultSet resultSet = statement.excuteQuery(query);
-=> đối với query dạng insert, delete, update:
-	sử dụng excuteUpdate(<Tên của chuỗi truy vấn hoặc chuỗi truy vấn>);
-=> tạo, xóa bảng sử dụng excute();
-6. Xử lí kết quả trả về
+Execute a query (select, delete, update, ...):
+=> Note: If the query is a select statement, the result returned is a ResultSet:
+graphql
+Copy code
+String query = "select * from Lop";
+ResultSet resultSet = statement.excuteQuery(query);
+=> For insert, delete, update queries:
+Use excuteUpdate(<Name of the query string or the query string>);
+=> To create or delete a table, use excute();
+Handle the returned result.
+Download Library: Microsoft SQL Server JDBC Driver
 
-Download Library: http://www.microsoft.com/en-us/download/details.aspx?id=11774
+**Main Features**
 
-**Các tính năng chính**
-- Đăng nhập
-- Đăng xuất
-- Nhóm quản lý sinh viên (Thêm/sửa/xóa/tạo mới)
-- Nhóm quản lý điểm (Thêm/sửa/xóa/tạo mới)
+Login
+Logout
+Student management group (Add/edit/delete/create new)
+Grade management group (Add/edit/delete/create new)
 
-**Giao diện đăng nhập:**
+**Login interface:**
 
-![Capture](https://github.com/duycoding/CT276-Project/assets/128799277/a0ec879e-8476-436a-9413-bce273dc75ea)
-
-**Giao điện quản lý sinh viên**
-![image](https://github.com/duycoding/CT276-Project/assets/128799277/9c347ef8-62c8-4503-b7db-1ff9cfd7aebc)
-
-
-**Giao diện quản lý điểm**
-
-![image](https://github.com/duycoding/CT276-Project/assets/128799277/d4ac26bb-6d24-4199-8f6a-29eba2fcdb2e)
+![image](https://github.com/duycoding/CT276-Project/assets/128799277/6e305de4-df26-4655-a89b-91db811820ab)
 
 
+**Student management interface**
+
+![image](https://github.com/duycoding/CT276-Project/assets/128799277/fee69e76-226b-438f-bc7e-c7d99e28cd0c)
+
+
+Grade management interface
+
+![image](https://github.com/duycoding/CT276-Project/assets/128799277/2679b8ad-11ef-4975-b764-8c3eb0b83191)
