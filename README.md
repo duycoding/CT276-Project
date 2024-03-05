@@ -1,4 +1,4 @@
-Hướng dẫn kết nối với Database SQL Server:
+**Hướng dẫn kết nối với Database SQL Server:**
 1. Nạp driver : 
 => Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 2. Connection URL :
@@ -21,7 +21,22 @@ Hướng dẫn kết nối với Database SQL Server:
 
 Download Library: http://www.microsoft.com/en-us/download/details.aspx?id=11774
 
-Giao diện đăng nhập: 
+**Các tính năng chính**
+- Đăng nhập
+- Đăng xuất
+- Nhóm quản lý sinh viên (Thêm/sửa/xóa/tạo mới)
+- Nhóm quản lý điểm (Thêm/sửa/xóa/tạo mới)
+
+**Giao diện đăng nhập:**
+
 ![Capture](https://github.com/duycoding/CT276-Project/assets/128799277/a0ec879e-8476-436a-9413-bce273dc75ea)
+
+**Giao điện quản lý sinh viên**
+![image](https://github.com/duycoding/CT276-Project/assets/128799277/9c347ef8-62c8-4503-b7db-1ff9cfd7aebc)
+
+
+**Giao diện quản lý điểm**
+
+![image](https://github.com/duycoding/CT276-Project/assets/128799277/d4ac26bb-6d24-4199-8f6a-29eba2fcdb2e)
 
 
