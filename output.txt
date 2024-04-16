@@ -1,0 +1,4 @@
+MaSinhVien: B1234567, HoTen: Dương Quốc Huy, Email: huyvinhlong@gmail.com, SDT: 023568746, GioiTinh: 0, DiaChi: Vĩnh Long, TiengAnh: 9.0, TinHoc: 9.0, GDTC: 9.0
+MaSinhVien: B2012156, HoTen: Nguyên Thi Lan, Email: haha@gmail.com, SDT: 026657, GioiTinh: 0, DiaChi: Cà Mau, TiengAnh: 0.0, TinHoc: 0.0, GDTC: 0.0
+MaSinhVien: B2012188, HoTen: Nguyễn Hữu Duy, Email: adfd@gmail.com, SDT: 0999999, GioiTinh: 0, DiaChi: Bến Tre, TiengAnh: 10.0, TinHoc: 9.0, GDTC: 9.0
+MaSinhVien: B2012189, HoTen: Ngô Thành Tài 1, Email: adfd@gmail.com, SDT: 0999999, GioiTinh: 0, DiaChi: Bến Tre, TiengAnh: 0.0, TinHoc: 0.0, GDTC: 0.0

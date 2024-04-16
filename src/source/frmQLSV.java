@@ -3,6 +3,11 @@ package source;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.*;
 
 /**
  *
@@ -12,6 +17,9 @@ public class frmQLSV extends javax.swing.JFrame {
     private QuanLyDiemSinhVienPanel StudentPanel;
     private QuanLySinhVienPanel QLSV;
     
+    
+    public String strConnection = "jdbc:sqlserver://DESKTOP-4SSFG6O\\SQLEXPRESS:1433;Databasename=BaiTapLon;user=sa;password=sa";
+
     /** Creates new form frmQLSV */
     public frmQLSV() {
         initComponents();
@@ -230,7 +238,52 @@ public class frmQLSV extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLySinhVienActionPerformed
 
     private void mnu_ThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_ThoatActionPerformed
-            System.exit(0);
+        String strConnection = "jdbc:sqlserver://DESKTOP-4SSFG6O\\SQLEXPRESS:1433;DatabaseName=BaiTapLon;user=sa;password=sa";
+        String tableName = "SinhVien";
+        String columnName = "SinhVien.MaSinhVien, SinhVien.HoTen, SinhVien.Email, SinhVien.SDT, SinhVien.GioiTinh, SinhVien.DiaChi, ISNULL(BangDiem.TiengAnh, 0) AS TiengAnh, ISNULL(BangDiem.TinHoc, 0) AS TinHoc, ISNULL(BangDiem.GDTC, 0) AS GDTC";
+        String fileName = "output.txt";
+
+        try {
+            File file = new File(fileName);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            Connection connection = DriverManager.getConnection(strConnection);
+            String query = "SELECT " + columnName + " FROM " + tableName + " LEFT JOIN BangDiem ON SinhVien.MaSinhVien = BangDiem.MaSinhVien";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+
+            while (resultSet.next()) {
+                // Trích xuất dữ liệu từ mỗi cột
+                String maSinhVien = resultSet.getString("MaSinhVien");
+                String hoTen = resultSet.getString("HoTen");
+                String email = resultSet.getString("Email");
+                String sdt = resultSet.getString("SDT");
+                String gioiTinh = resultSet.getString("GioiTinh");
+                String diaChi = resultSet.getString("DiaChi");
+                String tiengAnh = resultSet.getString("TiengAnh");
+                String tinHoc = resultSet.getString("TinHoc");
+                String gdtc = resultSet.getString("GDTC");
+
+                // Ghi dữ liệu vào file
+                writer.write("MaSinhVien: " + maSinhVien + ", HoTen: " + hoTen + ", Email: " + email + ", SDT: " + sdt + ", GioiTinh: " + gioiTinh + ", DiaChi: " + diaChi +
+                             ", TiengAnh: " + tiengAnh + ", TinHoc: " + tinHoc + ", GDTC: " + gdtc + "\n");
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            writer.close();
+            connection.close();
+
+            System.out.println("Dữ liệu đã được ghi vào file thành công.");
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(0);
     }//GEN-LAST:event_mnu_ThoatActionPerformed
 
     private void mnu_QLSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_QLSVActionPerformed

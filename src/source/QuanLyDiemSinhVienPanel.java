@@ -146,7 +146,7 @@ public class QuanLyDiemSinhVienPanel extends javax.swing.JPanel {
         });
 
         btnNhapMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new-icon-16.png"))); // NOI18N
-        btnNhapMoi.setText("Add new");
+        btnNhapMoi.setText("Thêm mới");
         btnNhapMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNhapMoiActionPerformed(evt);
